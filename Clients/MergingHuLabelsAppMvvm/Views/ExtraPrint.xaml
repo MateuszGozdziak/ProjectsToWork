@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="MergingHuLabelsAppMvvm.Views.ExtraPrint"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MergingHuLabelsAppMvvm.Views"
+             xmlns:vm="clr-namespace:MergingHuLabelsAppMvvm.ViewModels"
+             xmlns:enums="clr-namespace:MergingHuLabelsAppMvvm.Models"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance vm:MainViewModel}"
+             d:DesignHeight="450" d:DesignWidth="300"
+             Width="400">
+    <Grid Height="Auto"
+          Margin="3 10 3 3"
+          VerticalAlignment="Stretch"
+          HorizontalAlignment="Stretch"
+          >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <!-- typ batcha -->
+            <RowDefinition Height="auto"/>
+            <!-- nr batcha -->
+            <RowDefinition Height="auto"/>
+            <!-- market -->
+            <RowDefinition Height="auto"/>
+            <!-- dispatch date -->
+            <RowDefinition Height="auto"/>
+            <!-- posting date -->
+            <RowDefinition Height="*"/>
+            <!-- panel plikow -->
+            <RowDefinition Height="auto"/>
+            <!-- przyciski -->
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--<Label Grid.Row="1" Grid.Column="0"
+               Content="Przewidywany numer batcha:"/>
+        <TextBox x:Name="batchNumberTextBox"
+                 Grid.Row="1" Grid.Column="1"
+                 Text="{Binding NewBatch.BatchNumber}"
+                 IsReadOnly="True"/>-->
+
+        <Label Grid.Row="2" Grid.Column="0"
+               Content="Rynek:"/>
+
+        <Label Grid.Row="3" Grid.Column="0"
+               Content="Data transportu:"/>
+        <!--<DatePicker x:Name="DispatchDatePicker"
+                    Grid.Row="3" Grid.Column="1"
+                    SelectedDate="{Binding NewBatchDispatchDate}"/>-->
+
+        <Label Grid.Row="4" Grid.Column="0"
+               Content="Data nadania:"/>
+        <!--<DatePicker x:Name="PostingDatePicker" 
+                    Grid.Row="4" Grid.Column="1"
+                    SelectedDate="{Binding NewBatchPostingDate}"/>-->
+
+        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    Margin="0 3">
+
+            <!--<Button Content="Wybierz pliki"
+                    Command="{Binding SelectFilesCommand}"
+                    HorizontalAlignment="Center"
+                    Width="auto"
+                    MinWidth="150"
+                    Margin="3 0"/>-->
+        </StackPanel>
+
+        <StackPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0 3">
+            <!--<Button Content="Utwórz"
+                    Width="100"
+                    Margin="3 0"
+                    Command="{Binding SaveNewBatchCommand}"/>
+            <Button Content="Anuluj"
+                    Width="100"
+                    Margin="3 0"
+                    Command="{Binding CancelNewBatchCommand}"/>-->
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

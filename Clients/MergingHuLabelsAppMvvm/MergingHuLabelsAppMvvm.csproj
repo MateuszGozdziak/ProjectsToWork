@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+		<ItemGroup>
+				<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+				<PackageReference Include="itext7" Version="8.0.3" />
+				<PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.3" />
+				<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
+				<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.6">
+						<PrivateAssets>all</PrivateAssets>
+						<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+				</PackageReference>
+				<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+				<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
+						<PrivateAssets>all</PrivateAssets>
+						<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+				</PackageReference>
+				<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+				<PackageReference Include="NLog" Version="5.2.8" />
+				<PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+		</ItemGroup>
+		<ItemGroup>
+		  <ProjectReference Include="..\..\TestApps\TrackingPlPrototype\TrackingPlPrototype.csproj" />
+		</ItemGroup>
+</Project>

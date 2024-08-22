@@ -1,0 +1,138 @@
+﻿<Window x:Class="MergingHuLabelsAppMvvm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MergingHuLabelsAppMvvm"
+        xmlns:vm="clr-namespace:MergingHuLabelsAppMvvm.ViewModels"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance vm:MainViewModel}"
+        Title="Merging Hungarian Labels" Height="450" Width="650">
+    
+    <Grid Margin="0">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--<Grid  Grid.Row="0" Grid.Column="2">
+            <TabControl>
+                <TabItem Header="Przedruki">
+                    <StackPanel>
+                        <Button Content="Przedruki" Width="150" Height="30" Margin="5"/>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Przedruki">
+                    <StackPanel>
+                        <Button Content="Przedruki" Width="150" Height="30" Margin="5"/>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </Grid>-->
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+               Content="Akcje:"
+               FontSize="21"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Stretch"
+               HorizontalContentAlignment="Center"
+               Background="#EEEEEE"/>
+        
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            
+            <Button
+                Content="Wybierz pliki"
+                Command="{Binding OpenFileDialogCommand}"
+                Width="150" Height="30"
+                Margin="5"
+                HorizontalAlignment="Center"
+                />
+
+            <Button
+                Content="Generuj etykiete"
+                Command="{Binding GenerateLabelsCommand}"
+                HorizontalAlignment="Center"
+                Width="150" Height="30"
+                Margin="5"
+                />
+
+            <Button
+                Content="Otwórz plik"
+                Command="{Binding OpenPdfInBroswerCommand}"
+                HorizontalAlignment="Center"
+                Width="150" Height="30"
+                Margin="5"
+                />
+
+            <ComboBox x:Name="printerComboBox" 
+                      Width="150" 
+                      Margin="10"
+                      HorizontalContentAlignment="Center"
+                      SelectedIndex ="{Binding SelectedPrinterIndex
+                                       ,Mode=TwoWay}"
+                      >
+
+                <ComboBoxItem Content="Adam Printer" />
+                <ComboBoxItem Content="Ewa Printer" />
+                <ComboBoxItem Content="Fiery Printer" />
+            </ComboBox>
+
+            <Button Content="Wyślij na drukarkę"
+                    Command="{Binding SendToPrinterCommand}"
+                    Width="150" Height="30"
+                    Margin="10" 
+                    />
+
+            <Button Content="Przedruki"
+                    Command="{Binding OpenExtraPrintCommand}"
+                    Width="150" Height="30"
+                    Margin="10" 
+                    />
+
+        </StackPanel>
+
+
+        <ListView Grid.Row="1" Grid.Column="1"
+                  x:Name="DirectoryListView"
+                  ItemsSource="{Binding ListOfDirectories , Mode=TwoWay}"
+                  HorizontalAlignment="Left" 
+                  Height="200" Width="160"
+                  VerticalAlignment="Top" 
+                  Margin="5"
+                  SelectedIndex="{Binding SelectedDirectoryIndex}"
+                  DisplayMemberPath="Name"
+                >
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nieprzetworzeone etykiety" DisplayMemberBinding="{Binding Name}" Width="Auto" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <StackPanel Grid.Row="1"  Grid.Column="2">
+            
+            <Label Content="Delivery bez dopasowania:"
+                   FontSize="12"
+                   />
+
+            <ListBox Grid.Column="2" 
+                     ItemsSource="{Binding DeliveriesWithoutMatch,Mode=TwoWay}"
+                     HorizontalAlignment="Left" 
+                     Height="169" 
+                     Margin="5" 
+                     VerticalAlignment="Top" 
+                     Width="120" 
+                     >
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Window>

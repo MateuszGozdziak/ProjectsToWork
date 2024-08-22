@@ -1,0 +1,21 @@
+﻿<Window x:Class="MailSender.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MailSender"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Send E-mail" HorizontalAlignment="Left" Height="42" Margin="69,316,0,0" VerticalAlignment="Top" Width="124" Click="SendEmail_Click"/>
+        <Label x:Name="lblFullName" Content="Label" FontSize="17" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
+        <Label Content="Temat" HorizontalAlignment="Left" Height="31" Margin="10,65,0,0" VerticalAlignment="Top" Width="54"/>
+        <Label Content="Treść" HorizontalAlignment="Left" Height="41" Margin="15,96,0,0" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Height="21" Margin="69,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="132"/>
+        <TextBox x:Name="txtBody" HorizontalAlignment="Left" Height="205" Margin="69,96,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="365"/>
+        <Label Content="Oddbiorcy: " HorizontalAlignment="Left" Height="10" Margin="232,70,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label Content="Odbiorcy:" HorizontalAlignment="Left" Height="31" Margin="439,70,0,0" VerticalAlignment="Top" Width="66"/>
+        <ListBox x:Name="emailsList" HorizontalAlignment="Left" Height="20" Margin="450,96,0,0" VerticalAlignment="Top" Width="138"/>
+
+    </Grid>
+</Window>
